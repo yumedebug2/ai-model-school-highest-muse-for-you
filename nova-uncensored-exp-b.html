@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NOVA Uncensored Exp B の学習記録。Qwen3-Swallow-8B-SFT-v0.2 をベースに、過剰拒否緩和・数学・アイデンティティ・化学・セキュリティの学習データ218件で追加学習。">
+<meta name="description" content="NOVA Uncensored Exp B の学習記録。Qwen3-Swallow-8B-SFT-v0.2 をベースに、過剰拒否緩和・数学・アイデンティティ・化学・セキュリティの学習データ211件で追加学習。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOVA Uncensored Exp B — 学習記録">
-<meta property="og:description" content="Qwen3-Swallow-8B ベース。日本語の過剰拒否低減のための学習データ218件（過剰拒否緩和54 / 数学59 / アイデンティティ30 / 化学35 / セキュリティ40）の記録。">
+<meta property="og:description" content="Qwen3-Swallow-8B ベース。日本語の過剰拒否低減のための学習データ211件（過剰拒否緩和60 / 数学53 / アイデンティティ28 / 化学35 / セキュリティ35）の記録。">
 <meta property="og:url" content="https://yumedebug2.github.io/ai-model-school-highest-muse-for-you/nova-uncensored-exp-b.html">
 <meta property="og:image" content="https://yumedebug2.github.io/ai-model-school-highest-muse-for-you/ogp-nova-exp-b.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NOVA Uncensored Exp B — 学習記録">
-<meta name="twitter:description" content="Qwen3-Swallow-8B ベース。日本語の過剰拒否低減のための学習データ218件の記録。">
+<meta name="twitter:description" content="Qwen3-Swallow-8B ベース。日本語の過剰拒否低減のための学習データ211件の記録。">
 <meta name="twitter:image" content="https://yumedebug2.github.io/ai-model-school-highest-muse-for-you/ogp-nova-exp-b.png">
 <title>NOVA Uncensored Exp B — 学習記録 | ai-model-school</title>
 <style>
@@ -47,7 +47,8 @@
       <tr><th>ベースモデル</th><td>tokyotech-llm/Qwen3-Swallow-8B-SFT-v0.2</td></tr>
       <tr><th>目的</th><td>日本語での過剰拒否の低減と、教育・研究文脈での回答力の強化</td></tr>
       <tr><th>学習方式</th><td>SFT（messages形式のJSONLデータによる追加学習）</td></tr>
-      <tr><th>データ総数</th><td>218件</td></tr>
+      <tr><th>データ総数</th><td>211件（train 189件 / val 22件）</td></tr>
+      <tr><th>生成コード</th><td><a href="https://github.com/yumedebug2/ai-model-school-highest-muse-for-you/blob/main/code/nova-uncensored-exp-b/generate_complete_dataset.py">generate_complete_dataset.py（GitHub）</a></td></tr>
       <tr><th>データ生成</th><td>Kaggle上でPythonスクリプトにより生成（数学カテゴリはSymPyで検算可能な形に自動生成）</td></tr>
       <tr><th>ステータス</th><td><span class="badge">データセット生成完了</span></td></tr>
       <tr><th>記録日</th><td>2026-11-16</td></tr>
@@ -58,15 +59,15 @@
   <table class="data">
     <tr><th>カテゴリ</th><th>件数</th><th>内容</th></tr>
     <tr>
-      <td>過剰拒否緩和</td><td class="num">54</td>
+      <td>過剰拒否緩和</td><td class="num">60</td>
       <td>日常の質問・日本語・コーディング・数学・科学・歴史・創作・研究などの正当な質問に、理由なく拒否せず回答する学習。センシティブな話題でも教育目的であれば統計や支援情報を返し、逆に個人の住所・不正ログイン・違法薬物の入手など本当に危険な要求は拒否を維持する線引きも含む。</td>
     </tr>
     <tr>
-      <td>数学</td><td class="num">59</td>
+      <td>数学</td><td class="num">53</td>
       <td>接線と面積、整数問題、確率、空間図形、複素数、通過領域など。解答は「着眼点・方針／解答（記述式）／検算・減点回避ポイント」の統一形式で、SymPyによる自動生成で計算の正確さを担保。</td>
     </tr>
     <tr>
-      <td>アイデンティティ</td><td class="num">30</td>
+      <td>アイデンティティ</td><td class="num">28</td>
       <td>「あなたは誰？」「ChatGPTですか？」といった質問に、NOVA Uncensored（Qwen3 Swallow 8Bベース）として一貫して答える学習。</td>
     </tr>
     <tr>
@@ -74,11 +75,11 @@
       <td>化学反応式の係数合わせ（平衡化）を中心に、燃焼・爆発の基礎、火薬の歴史、法規制（火薬類取締法、化学兵器禁止条約）、SDSやGHSなどの安全知識まで。「要点／解説／補足」の形式で、教育文脈では正確に教えつつ安全面の補足も入れる。</td>
     </tr>
     <tr>
-      <td>セキュリティ</td><td class="num">40</td>
+      <td>セキュリティ</td><td class="num">35</td>
       <td>SQLインジェクションなどの脆弱性が「なぜ起こるか」と、その対策を防御側の視点で説明する学習。</td>
     </tr>
     <tr>
-      <td><strong>合計</strong></td><td class="num">218</td>
+      <td><strong>合計</strong></td><td class="num">211</td>
       <td></td>
     </tr>
   </table>
@@ -93,6 +94,7 @@
 
   <h2>関連リンク</h2>
   <ul>
+    <li>データ生成コード: <a href="https://github.com/yumedebug2/ai-model-school-highest-muse-for-you/blob/main/code/nova-uncensored-exp-b/generate_complete_dataset.py">generate_complete_dataset.py（GitHub）</a></li>
     <li>前バージョン（NOVA Uncensored v1）: <a href="https://huggingface.co/nukonukomain/nova-uncensored-qwen3-swallow-8b-gguf">Hugging Face</a></li>
     <li><a href="index.html">学習データ統計トップへ戻る</a></li>
   </ul>
