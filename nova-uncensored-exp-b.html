@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA Uncensored Exp B — 学習記録 | ai-model-school</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; background: #101114; color: #e8e8ea; }
+  main { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  .sub { color: #9a9aa2; font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 17px; border-left: 4px solid #83C441; padding-left: 10px; margin: 36px 0 14px; }
+  p, li { font-size: 14px; line-height: 1.8; }
+  .meta { background: #17181c; border: 1px solid #26272c; border-radius: 10px; padding: 16px 20px; }
+  .meta table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .meta th, .meta td { padding: 6px 8px; text-align: left; border: none; }
+  .meta th { color: #9a9aa2; font-weight: 400; width: 140px; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.data th, table.data td { border: 1px solid #26272c; padding: 8px 10px; text-align: left; }
+  table.data th { background: #17181c; color: #c9c9cf; }
+  table.data td.num { text-align: right; color: #83C441; font-weight: 700; }
+  a { color: #83C441; }
+  .badge { display: inline-block; background: #1d2b12; color: #83C441; border: 1px solid #83C441; border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+  footer { margin-top: 48px; color: #6d6d75; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>NOVA Uncensored Exp B</h1>
+  <p class="sub">学習データの記録ページ。このモデルに「どんな学習をさせたか」を公開しています。</p>
+
+  <h2>概要</h2>
+  <div class="meta">
+    <table>
+      <tr><th>モデル名</th><td>NOVA Uncensored Exp B</td></tr>
+      <tr><th>ベースモデル</th><td>tokyotech-llm/Qwen3-Swallow-8B-SFT-v0.2</td></tr>
+      <tr><th>目的</th><td>日本語での過剰拒否の低減と、教育・研究文脈での回答力の強化</td></tr>
+      <tr><th>学習方式</th><td>SFT（messages形式のJSONLデータによる追加学習）</td></tr>
+      <tr><th>データ総数</th><td>218件</td></tr>
+      <tr><th>データ生成</th><td>Kaggle上でPythonスクリプトにより生成（数学カテゴリはSymPyで検算可能な形に自動生成）</td></tr>
+      <tr><th>ステータス</th><td><span class="badge">データセット生成完了</span></td></tr>
+      <tr><th>記録日</th><td>2026-11-16</td></tr>
+    </table>
+  </div>
+
+  <h2>学習データの内訳</h2>
+  <table class="data">
+    <tr><th>カテゴリ</th><th>件数</th><th>内容</th></tr>
+    <tr>
+      <td>過剰拒否緩和</td><td class="num">54</td>
+      <td>日常の質問・日本語・コーディング・数学・科学・歴史・創作・研究などの正当な質問に、理由なく拒否せず回答する学習。センシティブな話題でも教育目的であれば統計や支援情報を返し、逆に個人の住所・不正ログイン・違法薬物の入手など本当に危険な要求は拒否を維持する線引きも含む。</td>
+    </tr>
+    <tr>
+      <td>数学</td><td class="num">59</td>
+      <td>接線と面積、整数問題、確率、空間図形、複素数、通過領域など。解答は「着眼点・方針／解答（記述式）／検算・減点回避ポイント」の統一形式で、SymPyによる自動生成で計算の正確さを担保。</td>
+    </tr>
+    <tr>
+      <td>アイデンティティ</td><td class="num">30</td>
+      <td>「あなたは誰？」「ChatGPTですか？」といった質問に、NOVA Uncensored（Qwen3 Swallow 8Bベース）として一貫して答える学習。</td>
+    </tr>
+    <tr>
+      <td>化学</td><td class="num">35</td>
+      <td>化学反応式の係数合わせ（平衡化）を中心に、燃焼・爆発の基礎、火薬の歴史、法規制（火薬類取締法、化学兵器禁止条約）、SDSやGHSなどの安全知識まで。「要点／解説／補足」の形式で、教育文脈では正確に教えつつ安全面の補足も入れる。</td>
+    </tr>
+    <tr>
+      <td>セキュリティ</td><td class="num">40</td>
+      <td>SQLインジェクションなどの脆弱性が「なぜ起こるか」と、その対策を防御側の視点で説明する学習。</td>
+    </tr>
+    <tr>
+      <td><strong>合計</strong></td><td class="num">218</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <h2>学習の方針</h2>
+  <ul>
+    <li>正当な質問（教育・研究・報道・創作の文脈）には不必要な拒否をしない</li>
+    <li>危険な実行支援にあたる要求（個人情報の収集、不正アクセス、違法行為の手順）は拒否を維持する</li>
+    <li>数学・化学は検証可能な形式（検算ポイント、平衡化した反応式）で正確さを担保する</li>
+    <li>不確実な予測や断定できない事柄は、断定せず幅を持って答える</li>
+  </ul>
+
+  <h2>関連リンク</h2>
+  <ul>
+    <li>前バージョン（NOVA Uncensored v1）: <a href="https://huggingface.co/nukonukomain/nova-uncensored-qwen3-swallow-8b-gguf">Hugging Face</a></li>
+    <li><a href="index.html">学習データ統計トップへ戻る</a></li>
+  </ul>
+
+  <footer>ai-model-school-highest-muse-for-you / updated by Altman (Muse)</footer>
+</main>
+</body>
+</html>
