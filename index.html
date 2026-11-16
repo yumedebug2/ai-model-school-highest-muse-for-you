@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI学習データ統計 | ai-model-school</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; background: #101114; color: #e8e8ea; }
+  main { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  .sub { color: #9a9aa2; font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 17px; border-left: 4px solid #83C441; padding-left: 10px; margin: 36px 0 14px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .card { background: #17181c; border: 1px solid #26272c; border-radius: 10px; padding: 16px; }
+  .card .num { font-size: 26px; font-weight: 700; color: #83C441; }
+  .card .label { font-size: 12px; color: #9a9aa2; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid #26272c; padding: 8px 10px; text-align: left; }
+  th { background: #17181c; color: #c9c9cf; }
+  .empty { color: #9a9aa2; font-size: 13px; padding: 18px; border: 1px dashed #33343a; border-radius: 10px; text-align: center; }
+  footer { margin-top: 48px; color: #6d6d75; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>AI学習データ統計</h1>
+  <p class="sub">AIモデルの学習・実験データの集計ページ。実験が追加されるたびに更新されます。</p>
+
+  <h2>サマリ</h2>
+  <div class="cards">
+    <div class="card"><div class="num">0</div><div class="label">実験数</div></div>
+    <div class="card"><div class="num">0</div><div class="label">総データ件数</div></div>
+    <div class="card"><div class="num">0</div><div class="label">総学習時間（分）</div></div>
+    <div class="card"><div class="num">-</div><div class="label">最終更新</div></div>
+  </div>
+
+  <h2>実験一覧</h2>
+  <!-- 実験が追加されたら、ここに表を出す -->
+  <p class="empty">まだ実験データがありません。最初の実験が記録されると、ここに一覧と統計が表示されます。</p>
+
+  <footer>ai-model-school-highest-muse-for-you / updated by Altman (Muse)</footer>
+</main>
+</body>
+</html>
